@@ -79,7 +79,7 @@ function SideDrawer() {
         },
       };
 
-      const { data } = await axios.get(`http://13.235.8.216:80/api/user?search=${search}`, config);
+      const { data } = await axios.get(`http://13.235.8.216:443/api/user?search=${search}`, config);
       console.log(data)
 
       setLoading(false);
@@ -107,7 +107,7 @@ function SideDrawer() {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post(`http://13.235.8.216:80/api/chat`, { userId }, config);
+      const { data } = await axios.post(`http://13.235.8.216:443/api/chat`, { userId }, config);
 
       if (!chats.find((c) => c._id === data._id)) setChats([data, ...chats]);
       setSelectedChat(data);
