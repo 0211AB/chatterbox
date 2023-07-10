@@ -16,7 +16,7 @@ import { AttachmentIcon } from "@chakra-ui/icons"
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "http://localhost:8080";
+const ENDPOINT = "http://13.235.8.216:80";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -45,7 +45,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://localhost:8080/api/message/${selectedChat._id}`,
+        `http://13.235.8.216:80/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -129,7 +129,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
         body = pic === null ? body : { ...body, imgUrl: pic }
         const { data } = await axios.post(
-          " http://localhost:8080/api/message", body, config);
+          " http://13.235.8.216:80/api/message", body, config);
         socket.emit("new message", data);
         setMessages([...messages, data]);
         setPic(null)
