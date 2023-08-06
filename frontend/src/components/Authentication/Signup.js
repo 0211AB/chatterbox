@@ -51,7 +51,7 @@ const Signup = () => {
         },
       };
       const { data } = await axios.post(
-        " http://13.235.8.216:443/api/user",
+        " https://chatterbox-ep4u.onrender.com/api/user",
         {
           name,
           email,

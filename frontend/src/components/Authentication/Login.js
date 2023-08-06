@@ -40,7 +40,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        " http://13.235.8.216:443/api/user/login",
+        " https://chatterbox-ep4u.onrender.com/api/user/login",
         { email, password },
         config
       );

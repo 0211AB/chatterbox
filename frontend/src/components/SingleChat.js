@@ -16,7 +16,7 @@ import { AttachmentIcon } from "@chakra-ui/icons"
 import io from "socket.io-client";
 import UpdateGroupChatModal from "./miscellaneous/UpdateGroupChatModal";
 import { ChatState } from "../Context/ChatProvider";
-const ENDPOINT = "http://13.235.8.216:443";
+const ENDPOINT = "https://chatterbox-ep4u.onrender.com";
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -45,7 +45,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       setLoading(true);
 
       const { data } = await axios.get(
-        `http://13.235.8.216:443/api/message/${selectedChat._id}`,
+        `https://chatterbox-ep4u.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -129,7 +129,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
         body = pic === null ? body : { ...body, imgUrl: pic }
         const { data } = await axios.post(
-          " http://13.235.8.216:443/api/message", body, config);
+          " https://chatterbox-ep4u.onrender.com/api/message", body, config);
         socket.emit("new message", data);
         setMessages([...messages, data]);
         setPic(null)
